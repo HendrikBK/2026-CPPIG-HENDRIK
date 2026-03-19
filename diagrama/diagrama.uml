@@ -1,0 +1,35 @@
+@startuml
+class Usuario {
+  String UserId
+  String Nome
+  String Tipo
+}
+
+class Reserva {
+  String UserId
+  String ChaveId
+  Date Horario
+  Date Dia
+}
+
+class Chave {
+  String ChaveId
+  String SalaId
+  String PredioId
+}
+
+class Predio {
+  String PredioId
+}
+
+class Sala {
+  String SalaId
+  String PredioId
+}
+
+Predio "1..1" *-- "1..n" Sala
+Predio "1..1" *-- "1..n" Chave
+Sala "1..1" *-- "1..n" Chave
+Chave "1..1" -- "1..n" Reserva
+Reserva "1..n" -- "1..1" Usuario
+@enduml
