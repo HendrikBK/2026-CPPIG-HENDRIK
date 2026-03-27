@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br" data-bs-theme="light">
+{% block head %}
+    {% include "head.html" %}
+{% endblock %}
+    <body>
+        <section class="section bg-success p-2 bg-opacity-75">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+					<div class="container-fluid">
+						<a class="navbar-brand" href="{% url 'index' %}">Início</a>
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+							data-bs-target="#navbarSupportedContent"
+							aria-controls="navbarSupportedContent" aria-expanded="false"
+							aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarCliente" role="button"
+										data-bs-toggle="dropdown" aria-expanded="false">
+										Usuários
+									</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="#">Cadastrar Usuário</a></li>
+										<li><a class="dropdown-item" href="#">Listar Usuários</a></li>
+									</ul>
+								</li>
+                                <li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarFornecedor" role="button"
+										data-bs-toggle="dropdown" aria-expanded="false">
+										Prédios
+									</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="#">Cadastrar Prédio</a></li>
+										<li><a class="dropdown-item" href="#">Listar Prédios</a></li>
+									</ul>
+								</li>
+                                <li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarFuncionario" role="button"
+										data-bs-toggle="dropdown" aria-expanded="false">
+										Salas
+									</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="#">Cadastrar Sala</a></li>
+										<li><a class="dropdown-item" href="#">Listar Salas</a></li>
+									</ul>
+								</li>
+                                <li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarServico" role="button"
+										data-bs-toggle="dropdown" aria-expanded="false">
+										Chaves
+									</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="#">Cadastrar Chave</a></li>
+										<li><a class="dropdown-item" href="#">Listar Chaves</a></li>
+									</ul>
+								</li>
+                                <li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarAgendamento" role="button"
+										data-bs-toggle="dropdown" aria-expanded="false">
+										Reservas
+									</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="#">Reservar</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+            </div>
+        </section>
+    {% block content %} {% endblock %}
+    </body>
+</html>
