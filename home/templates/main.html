@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{%  load django_bootstrap5 %}
 <html lang="pt-br" data-bs-theme="light">
 {% block head %}
     {% include "head.html" %}
@@ -21,11 +22,11 @@
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="navbarCliente" role="button"
 										data-bs-toggle="dropdown" aria-expanded="false">
-										Usuários
+										Clientes
 									</a>
 									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="#">Cadastrar Usuário</a></li>
-										<li><a class="dropdown-item" href="#">Listar Usuários</a></li>
+										<li><a class="dropdown-item" href="#">Cadastrar Cliente</a></li>
+										<li><a class="dropdown-item" href="#">Listar Clientes</a></li>
 									</ul>
 								</li>
                                 <li class="nav-item dropdown">
@@ -34,37 +35,48 @@
 										Prédios
 									</a>
 									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="#">Cadastrar Prédio</a></li>
-										<li><a class="dropdown-item" href="#">Listar Prédios</a></li>
+										<li><a class="dropdown-item" href="{% url 'predio_adicionar' %}">Cadastrar Prédio</a></li>
+										<li><a class="dropdown-item" href="{% url 'predios' %}">Listar Prédio</a></li>
 									</ul>
 								</li>
                                 <li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="navbarFuncionario" role="button"
 										data-bs-toggle="dropdown" aria-expanded="false">
-										Salas
+										Funcionários
 									</a>
 									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="#">Cadastrar Sala</a></li>
-										<li><a class="dropdown-item" href="#">Listar Salas</a></li>
+										<li><a class="dropdown-item" href="#">Cadastrar Funcionário</a></li>
+										<li><a class="dropdown-item" href="#">Listar Funcionários</a></li>
 									</ul>
 								</li>
                                 <li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="navbarServico" role="button"
 										data-bs-toggle="dropdown" aria-expanded="false">
-										Chaves
+										Serviços
 									</a>
 									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="#">Cadastrar Chave</a></li>
-										<li><a class="dropdown-item" href="#">Listar Chaves</a></li>
+										<li><a class="dropdown-item" href="#">Cadastrar Serviço</a></li>
+										<li><a class="dropdown-item" href="#">Listar Serviços</a></li>
+									</ul>
+								</li>
+                                <li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarProduto" role="button"
+										data-bs-toggle="dropdown" aria-expanded="false">
+										Produtos
+									</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="#">Cadastrar Produto</a></li>
+										<li><a class="dropdown-item" href="#">Listar Produtos</a></li>
 									</ul>
 								</li>
                                 <li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="navbarAgendamento" role="button"
 										data-bs-toggle="dropdown" aria-expanded="false">
-										Reservas
+										Agendamentos
 									</a>
 									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="#">Reservar</a></li>
+										<li><a class="dropdown-item" href="#">Cadastrar Agendamento</a></li>
+										<li><a class="dropdown-item" href="#">Listar Agendamentos</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -73,6 +85,15 @@
 				</nav>
             </div>
         </section>
+
+        {% if messages %}
+            <div class="container-fluid p-3">
+                {% bootstrap_messages %}
+            </div>
+        {% endif %}
     {% block content %} {% endblock %}
+        {% block footer %}
+        {% include "footer.html" %}
+    {% endblock %}
     </body>
 </html>
