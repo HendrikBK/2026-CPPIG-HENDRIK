@@ -19,16 +19,6 @@
 						</button>
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
 							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="#" id="navbarCliente" role="button"
-										data-bs-toggle="dropdown" aria-expanded="false">
-										Clientes
-									</a>
-									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="#">Cadastrar Cliente</a></li>
-										<li><a class="dropdown-item" href="#">Listar Clientes</a></li>
-									</ul>
-								</li>
                                 <li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" id="navbarFornecedor" role="button"
 										data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,43 +30,13 @@
 									</ul>
 								</li>
                                 <li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="#" id="navbarFuncionario" role="button"
+									<a class="nav-link dropdown-toggle" href="#" id="navbarFornecedor" role="button"
 										data-bs-toggle="dropdown" aria-expanded="false">
-										Funcionários
+										Salas
 									</a>
 									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="#">Cadastrar Funcionário</a></li>
-										<li><a class="dropdown-item" href="#">Listar Funcionários</a></li>
-									</ul>
-								</li>
-                                <li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="#" id="navbarServico" role="button"
-										data-bs-toggle="dropdown" aria-expanded="false">
-										Serviços
-									</a>
-									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="#">Cadastrar Serviço</a></li>
-										<li><a class="dropdown-item" href="#">Listar Serviços</a></li>
-									</ul>
-								</li>
-                                <li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="#" id="navbarProduto" role="button"
-										data-bs-toggle="dropdown" aria-expanded="false">
-										Produtos
-									</a>
-									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="#">Cadastrar Produto</a></li>
-										<li><a class="dropdown-item" href="#">Listar Produtos</a></li>
-									</ul>
-								</li>
-                                <li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="#" id="navbarAgendamento" role="button"
-										data-bs-toggle="dropdown" aria-expanded="false">
-										Agendamentos
-									</a>
-									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="#">Cadastrar Agendamento</a></li>
-										<li><a class="dropdown-item" href="#">Listar Agendamentos</a></li>
+										<li><a class="dropdown-item" href="{% url 'sala_adicionar' %}">Cadastrar Sala</a></li>
+										<li><a class="dropdown-item" href="{% url 'salas' %}">Listar Salas</a></li>
 									</ul>
 								</li>
 							</ul>
