@@ -37,7 +37,7 @@ class SalaAddView(SuccessMessageMixin, CreateView):
 
     def form_valid(self, form):
         form.save(commit=False)
-        form.instance.nome = str(form.instance.predio) + "-" + str(form.instance.numero)
+        form.instance.nome = str(form.instance.predio) + str(form.instance.numero)
         return super().form_valid(form)
 
 
