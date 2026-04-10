@@ -1,7 +1,8 @@
 from django import forms
 
 from predios.models import Predio
-from .models import Chave, ChavePredio
+from .models import ChavePredio, ChaveSala
+
 
 class ChavePredioModelForm(forms.ModelForm):
     class Meta:
@@ -9,12 +10,14 @@ class ChavePredioModelForm(forms.ModelForm):
         fields = []
 
         error_messages = {
-            'numero': {'required': 'O número da salas é um campo obrigatório'},
+            'codigo': {'required': 'O código do prédio é um campo obrigatório'},
         }
 
-    # def save(self, commit=True):
-    #     predio = Predio.objects.get(pk=self.kwargs['pk'])
-    #     self.instance.predio = predio
-    #     print("teste")
-    #     print(self.cleaned_data)
-    #     return super().save(commit)
+class ChaveSalaModelForm(forms.ModelForm):
+    class Meta:
+        model = ChaveSala
+        fields = []
+
+        error_messages = {
+            'numero': {'required': 'O número da sala é um campo obrigatório'},
+        }

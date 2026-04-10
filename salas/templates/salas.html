@@ -32,6 +32,11 @@
                                     <tr>
                                         <td>{{ sala.nome }}</td>
                                         <td style="text-align: center">
+                                            <a href="{% url 'chave_sala_adicionar' sala.pk %}">
+                                                <span class="icon">
+                                                    <i class="fas fa-edit"></i>
+                                                </span>
+                                            </a>
                                             <a href="{% url 'sala_editar' sala.pk %}">
                                                 <span class="icon">
                                                     <i class="fas fa-edit"></i>

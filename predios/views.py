@@ -17,7 +17,7 @@ class PrediosView(ListView):
         buscar = self.request.GET.get('buscar')
         qs = super(PrediosView, self).get_queryset()
         if buscar:
-            return qs.filter(nome__icontains=buscar)
+            return qs.filter(codigo__icontains=buscar)
 
         if qs.count() == 0:
             return messages.info(self.request,'Não existem prédios cadastrados!')
