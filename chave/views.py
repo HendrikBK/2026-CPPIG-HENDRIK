@@ -42,7 +42,7 @@ class ChavePredioAddView(SuccessMessageMixin, CreateView):
         form.save(commit=False)
         predio_id = self.kwargs.get('pk')
         predio = Predio.objects.get(pk=predio_id)
-
+        print(ChavePredio.objects.filter(predio=predio_id).count())
         if ChavePredio.objects.filter(predio=predio_id).count() == 0:
             form.instance.numero = 1
         else:
