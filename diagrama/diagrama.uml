@@ -1,21 +1,28 @@
 @startuml
-class Usuario {
-  String UserId
+class Pessoa {
+  String Cpf
   String Nome
-  String Tipo
 }
 
 class Reserva {
-  String UserId
-  String ChaveId
-  Date Horario
-  Date Dia
+  Date Inicio
+  Date Fim
+}
+
+class Emprestimo {
+  Date Inicio
+  Date Fim
 }
 
 class Chave {
-  String ChaveId
-  String SalaId
-  String PredioId
+  String Codigo
+  Int Numero
+}
+
+class ChaveSala {
+}
+
+class ChavePredio {
 }
 
 class Predio {
@@ -24,12 +31,15 @@ class Predio {
 
 class Sala {
   String SalaId
-  String PredioId
 }
 
+Chave <-- ChaveSala
+Chave <-- ChavePredio
 Predio "1..1" *-- "1..n" Sala
-Predio "1..1" *-- "1..n" Chave
-Sala "1..1" *-- "1..n" Chave
+Predio "1..1" *-- "1..n" ChavePredio
+Sala "1..1" *-- "1..n" ChaveSala
 Chave "1..1" -- "1..n" Reserva
-Reserva "1..n" -- "1..1" Usuario
+Reserva "1..n" -- "1..1" Pessoa
+Pessoa "2..3" -- "1..n" Emprestimo
+Emprestimo "1..n" -- "1..1" Chave
 @enduml
