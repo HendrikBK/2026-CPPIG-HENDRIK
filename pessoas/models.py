@@ -11,4 +11,4 @@ class Pessoa(models.Model):
         verbose_name_plural = "Pessoas"
 
     def __str__(self):
-        return self.cpf
+        return self.nome

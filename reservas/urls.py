@@ -1,0 +1,12 @@
+from django.urls import path
+
+from reservas.views import ReservaUpdateView, ReservaAddView, ReservasView, \
+    ReservaDeleteView
+
+urlpatterns = [
+    path('reservas', ReservasView.as_view(), name='reservas'),
+    path('reserva/adicionar/', ReservaAddView.as_view(), name='reserva_adicionar'),
+    path('<int:pk>/reserva/editar/', ReservaUpdateView.as_view(), name='reserva_editar'),
+    path('<int:pk>/reserva/apagar/', ReservaDeleteView.as_view(),
+         name='reserva_apagar'),
+]

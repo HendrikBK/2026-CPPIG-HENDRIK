@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 INSTALLED_APPS += ['django_bootstrap5', 'django_seed',]
 
 INSTALLED_APPS += [
-    'home', 'predios', 'salas', 'chave', 'pessoas'
+    'home', 'predios', 'salas', 'chave', 'pessoas', 'reservas'
 ]
 
 MIDDLEWARE = [
@@ -112,7 +112,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
+
+USE_L10N = True
 
 USE_I18N = True
 
