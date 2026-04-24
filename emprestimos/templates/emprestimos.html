@@ -6,7 +6,7 @@
         <div class="container">
             <form action="" method="GET">
                 <div class="form-group row p-3">
-                    <label class="col-sm-2 col-form-label">Código do Prédio: </label>
+                    <label class="col-sm-2 col-form-label">Empréstimo: </label>
                     <div class="col-sm-8">
                         <input class="form-control" type="text" name="buscar" value="{{ request.GET.buscar }}"
                                placeholder="Digite o código do prédio">
@@ -20,36 +20,29 @@
             </form>
         {% if object_list %}
                 <div class="card-body">
-                    <h3 class="text-center">Chaves Cadastrados</h3>
+                    <h3 class="text-center">Empréstimos</h3>
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead class="table-success">
-                                <th>Código</th>
-                                <th>Disponível</th>
+                                <th>Início</th>
+                                <th>Fim</th>
+                                <th>Pessoa</th>
+                                <th>Chave</th>
                                 <th style="width: 100px; text-align: center">Ações</th>
                             </thead>
                             <tbody>
-                            {% for chave in object_list %}
+                            {% for emprestimo in object_list %}
                                     <tr>
-                                        <td>{{ chave.codigo }}</td>
-                                        <td>
-                                            {% if chave.disponivel %}
-                                                Sim
-                                            {% endif %}
-                                        </td>
+                                        <td>{{ emprestimo.inicio|date:"d/m/Y l H:i"}}</td>
+                                        <td>{{ emprestimo.fim|date:"d/m/Y l H:i"}}</td>
+                                        <td>{{ emprestimo.pessoa }}</td>
+                                        <td>{{ emprestimo.chave }}</td>
                                         <td style="text-align: center">
-                                            <a href="{% url 'chave_apagar' chave.pk %}">
+                                            <a href="{% url 'emprestimo_editar' emprestimo.pk %}">
                                                 <span class="icon">
-                                                    <i class="far fa-trash-alt"></i>
+                                                    <i class="fas fa-edit"></i>
                                                 </span>
                                             </a>
-                                            {% if chave.disponivel %}
-                                            <a href="{% url 'emprestimo_adicionar' chave.pk %}">
-                                                <span class="icon">
-                                                    <i class="far fa-trash-alt"></i>
-                                                </span>
-                                            </a>
-                                            {% endif %}
                                         </td>
                                     </tr>
                             {% endfor %}

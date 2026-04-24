@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 INSTALLED_APPS += ['django_bootstrap5', 'django_seed',]
 
 INSTALLED_APPS += [
-    'home', 'predios', 'salas', 'chave', 'pessoas', 'reservas'
+    'home', 'predios', 'salas', 'chave', 'pessoas', 'reservas', 'emprestimos'
 ]
 
 MIDDLEWARE = [

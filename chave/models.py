@@ -12,6 +12,7 @@ from predios.models import Predio
 class Chave(models.Model):
     codigo = models.CharField(max_length=9, unique=True)
     numero = models.CharField("Número", max_length=3, help_text="Número da Chave", validators=[RegexValidator(regex=r'\b[0-9]{2}\b',)])
+    disponivel = models.BooleanField("Disponivel", default=True)
 
     class Meta:
         verbose_name = "Chave"
