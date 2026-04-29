@@ -4,7 +4,7 @@ from .models import Reserva
 class ReservaModelForm(forms.ModelForm):
     class Meta:
         model = Reserva
-        fields = '__all__'
+        fields = ['inicio', 'pessoa']
         widgets = {
             'inicio': forms.DateTimeInput(attrs={'type': 'datetime-local' ,'class': 'form-control'}),
         }

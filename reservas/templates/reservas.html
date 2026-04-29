@@ -31,12 +31,13 @@
                             </thead>
                             <tbody>
                             {% for reserva in object_list %}
+                                {% if reserva.ativo %}
                                     <tr>
-                                        <td>{{ reserva.inicio|date:"d/m/Y l H:i"}}</td>
+                                        <td>{{ reserva.inicio|date:"d/m/Y H:i"}}</td>
                                         <td>{{ reserva.pessoa }}</td>
-                                        <td>{{ reserva.sala }}</td>
+                                        <td>{{ reserva.chave }}</td>
                                         <td style="text-align: center">
-                                            <a href="{% url 'reserva_editar' reserva.pk %}">
+                                            <a href="{% url 'emprestimo_adicionar' reserva.pk %}">
                                                 <span class="icon">
                                                     <i class="fas fa-edit"></i>
                                                 </span>
@@ -48,6 +49,7 @@
                                             </a>
                                         </td>
                                     </tr>
+                                {% endif %}
                             {% endfor %}
                             </tbody>
                         </table>

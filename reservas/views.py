@@ -2,8 +2,11 @@ from django.contrib import messages
 from django.contrib.messages import SUCCESS
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
+from django.utils import timezone
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.shortcuts import render
+
+from chave.models import Chave
 from .forms import ReservaModelForm
 from predios.models import Predio
 from .models import Reserva
@@ -30,7 +33,18 @@ class ReservaAddView(SuccessMessageMixin, CreateView):
     form_class = ReservaModelForm
     template_name = 'reserva_form.html'
     success_url = reverse_lazy('reservas')
-    success_message = 'Reserva feita com sucesso'
+
+    def form_valid(self, form):
+        formulario = form.save(commit=False)
+        chave_id = self.kwargs.get('pk')
+        chave = Chave.objects.get(pk=chave_id)
+        chave.disponivel = False
+        chave.save()
+
+        formulario.chave = chave
+        formulario.save()
+
+        return super().form_valid(form)
 
 class ReservaUpdateView(SuccessMessageMixin, UpdateView):
     model = Reserva

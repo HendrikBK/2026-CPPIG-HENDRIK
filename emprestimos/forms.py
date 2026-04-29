@@ -4,7 +4,7 @@ from .models import Emprestimo
 class EmprestimoModelForm(forms.ModelForm):
     class Meta:
         model = Emprestimo
-        fields = ['pessoa', 'reserva']
+        fields = ['pessoa']
         widgets = {
             'inicio': forms.DateTimeInput(attrs={'type': 'datetime-local' ,'class': 'form-control'}),
         }
@@ -22,3 +22,8 @@ class EmprestimoFimModelForm(forms.ModelForm):
         widgets = {
             'fim': forms.DateTimeInput(attrs={'type': 'datetime-local' ,'class': 'form-control'}),
         }
+
+class EmprestimoReservaModelForm(forms.ModelForm):
+    class Meta:
+        model = Emprestimo
+        fields = []

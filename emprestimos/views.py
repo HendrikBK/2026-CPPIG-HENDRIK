@@ -8,7 +8,9 @@ from django.views.generic import ListView, CreateView, UpdateView
 from django.shortcuts import render
 
 from chave.models import Chave
-from .forms import EmprestimoModelForm, EmprestimoFimModelForm
+from reservas.models import Reserva
+from .forms import EmprestimoModelForm, EmprestimoFimModelForm, \
+    EmprestimoReservaModelForm
 from predios.models import Predio
 from .models import Emprestimo
 
@@ -44,6 +46,29 @@ class EmprestimoAddView(SuccessMessageMixin, CreateView):
         chave.save()
 
         formulario.chave = chave
+        formulario.save()
+
+        return super().form_valid(form)
+
+
+
+class EmprestimoReservaAddView(SuccessMessageMixin, CreateView):
+    model = Emprestimo
+    form_class = EmprestimoReservaModelForm
+    template_name = 'emprestimo_form.html'
+    success_url = reverse_lazy('emprestimos')
+    success_message = 'Empréstimo feito com sucesso'
+
+    def form_valid(self, form):
+        formulario = form.save(commit=False)
+        reserva_id = self.kwargs.get('pk')
+        reserva = Reserva.objects.get(pk=reserva_id)
+        formulario.reserva = reserva
+        formulario.chave = reserva.chave
+        formulario.pessoa = reserva.pessoa
+        formulario.inicio = timezone.now()
+        reserva.ativo = False
+        reserva.save()
         formulario.save()
 
         return super().form_valid(form)
