@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 ]
 
 
-INSTALLED_APPS += ['django_bootstrap5', 'django_seed',]
+INSTALLED_APPS += ['django_bootstrap5', 'django_seed', 'django_apscheduler']
 
 INSTALLED_APPS += [
     'home', 'predios', 'salas', 'chave', 'pessoas', 'reservas', 'emprestimos'
@@ -125,3 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
+
+APSCHEDULER_RUN_NOW_TIMEOUT = 25  # Seconds
